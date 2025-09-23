@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://munikimbiri.gob.pe/sitemap.xml
