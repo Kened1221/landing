@@ -7,6 +7,7 @@ import {
   Footprints,
   Menu,
   X,
+  LogIn,
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -88,22 +89,40 @@ export function MobileMenu({
           side="right"
           className="w-80 h-full bg-background border-none rounded-l-xl p-0 overflow-y-auto"
         >
-          <div className="flex items-center gap-3 px-6 py-6 border-b border-border/40">
-            <img
-              src="/images/logo.png"
-              alt="Logo"
-              className="h-12 w-12 rounded-full"
-            />
-            <div>
-              <h2 className="text-sm font-bold">SGD</h2>
-              <p className="text-xs text-muted-foreground">RED ORANGE</p>
+          <div className="flex flex-col gap-4 px-6 py-6 border-b border-border/40">
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/images/logo.png"
+                  alt="Logo"
+                  className="h-12 w-12 rounded-full"
+                />
+                <div>
+                  <h2 className="text-sm font-bold">SGD</h2>
+                  <p className="text-xs text-muted-foreground">RED ORANGE</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setOpenSheet(false)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <X className="text-primary" />
+              </button>
             </div>
-            <button
-              onClick={() => setOpenSheet(false)}
-              className="ml-auto text-muted-foreground hover:text-foreground"
-            >
-              <X className="text-primary" />
-            </button>
+
+            <div className="w-full">
+              <a
+                href="https://std.munikimbiri.gob.pe:8181/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full"
+              >
+                <Button className="w-full justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-semibold shadow hover:shadow-lg hover:brightness-110 transition-all duration-300">
+                  <LogIn className="w-4 h-4" />
+                  Iniciar sesión
+                </Button>
+              </a>
+            </div>
           </div>
 
           <nav className="flex flex-col gap-1 p-2">

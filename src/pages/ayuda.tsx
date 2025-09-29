@@ -1,11 +1,20 @@
 "use client";
 
-import { BookOpen } from "lucide-react";
+import { BookOpen, FileText, FileSearch, Settings } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Manuales from "@/components/ayuda/Manuales";
-import Videos from "@/components/ayuda/Videos";
+import VideosSGD from "@/components/ayuda/VideosSGD";
+import VideosTT from "@/components/ayuda/VideosTT";
+import VideosMDP from "@/components/ayuda/VideosMDP";
 
 export default function AyudaPage() {
+  const tabs = [
+    { value: "manuales", label: "Manuales", icon: <FileText className="h-4 w-4 mr-2" /> },
+    { value: "tsgd", label: "Tutorial SGD", icon: <FileSearch className="h-4 w-4 mr-2" /> },
+    { value: "tmdp", label: "Tutorial Mesa de Partes", icon: <BookOpen className="h-4 w-4 mr-2" /> },
+    { value: "tt", label: "Tutoriales Técnicos", icon: <Settings className="h-4 w-4 mr-2" /> },
+  ];
+
   return (
     <div className="flex flex-col h-full min-h-screen z-10">
       <div className="flex flex-col gap-8 p-4 max-w-7xl w-full items-center mx-auto">
@@ -14,42 +23,40 @@ export default function AyudaPage() {
             <BookOpen className="h-4 w-4" />
             Centro de Ayuda
           </div>
-
           <h1 className="mb-2 text-4xl md:text-5xl font-bold tracking-tight leading-tight">
             <span className="block">Todo lo que necesitas</span>
             <span className="block text-primary">para empezar</span>
           </h1>
-
           <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground">
-            Manuales, guías y videos oficiales del SGD{" "}
+            Manuales, guías y videos oficiales del Sistema de Gestión Documental{" "}
             <span className="font-semibold text-chart-1">RedOrange</span>.
           </p>
         </div>
-
         <div className="mx-auto w-full">
           <Tabs defaultValue="manuales" className="w-full">
-            <TabsList className="flex w-full flex-col sm:flex-row h-full mb-4">
-              {[
-                { value: "manuales", label: "Manuales" },
-                { value: "videos", label: "Videos" },
-                { value: "charlas", label: "Charlas" },
-              ].map((tab) => (
+            <TabsList className="grid w-full h-full grid-cols-1 sm:grid-cols-4 gap-2 mb-6 bg-background">
+              {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="flex w-full items-center hover:cursor-pointer data-[state=active]:bg-primary dark:data-[state=active]:bg-chart-2 data-[state=active]:text-white dark:data-[state=active]:text-white"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-muted bg-muted/40 px-4 py-4 text-sm font-medium hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
                 >
+                  {tab.icon}
                   {tab.label}
                 </TabsTrigger>
               ))}
             </TabsList>
-
             <TabsContent value="manuales">
               <Manuales />
             </TabsContent>
-
-            <TabsContent value="videos">
-              <Videos />
+            <TabsContent value="tsgd">
+              <VideosSGD />
+            </TabsContent>
+            <TabsContent value="tmdp">
+              <VideosMDP />
+            </TabsContent>
+            <TabsContent value="tt">
+              <VideosTT />
             </TabsContent>
           </Tabs>
         </div>

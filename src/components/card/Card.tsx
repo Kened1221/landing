@@ -1,15 +1,13 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface CardProps {
   title: string;
   description: string;
   url: string;
   icon: React.ElementType;
-  gradient: string; // ejemplo: "from-cyan-400 to-blue-500"
-  index: number;
+  gradient: string; // ej: "from-indigo-500 via-purple-500 to-pink-500"
 }
 
 export default function Card({
@@ -18,85 +16,51 @@ export default function Card({
   url,
   icon: Icon,
   gradient,
-  index,
 }: CardProps) {
   return (
-    <>
-      <motion.a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.15 }}
-        className="relative w-[300px] h-[360px] rounded-2xl overflow-hidden group"
-      >
-        {/* Borde animado */}
-        <div className="absolute inset-0 flex items-center justify-center bg-primary-foreground">
-          <div className="w-[160px] h-[170%] rounded-full spin-border group-hover:spin-border-hover" />
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative w-[320px] h-[360px] mx-auto rounded-2xl overflow-hidden 
+                 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                 transition-all duration-500 ease-out"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl group-hover:shadow-xl transition-all duration-500 ease-out">
+        <div
+          className={`absolute inset-0 opacity-0 group-hover:opacity-25 transition-opacity duration-700 bg-gradient-to-r ${gradient} rounded-2xl`}
+        />
+      </div>
+
+      <div className="absolute inset-[6px] bg-white rounded-2xl z-10 shadow-md transition-transform duration-500 group-hover:shadow-lg" />
+
+      <div className="relative z-20 flex flex-col items-center justify-between h-full p-8 text-gray-800">
+        <div
+          className={`flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${gradient} 
+                      text-white shadow-lg mb-6 transition-all duration-500 ease-out 
+                      group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl`}
+        >
+          <Icon className="w-10 h-10 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6" />
         </div>
 
-        {/* Fondo interno ahora blanco */}
-        <div className="absolute inset-[6px] bg-white rounded-2xl z-10" />
+        <h3 className="text-xl font-semibold text-center tracking-tight text-gray-900 
+                       group-hover:text-indigo-600 transition-colors duration-500">
+          {title}
+        </h3>
 
-        {/* Contenido */}
-        <div className="relative z-20 flex flex-col items-center justify-between h-full p-8 text-gray-800">
-          {/* Icono con gradiente dinámico */}
-          <div
-            className={`flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${gradient} text-white shadow-lg mb-6 transition-transform duration-300 group-hover:scale-110`}
-          >
-            <Icon className="w-9 h-9" />
-          </div>
+        <p className="mt-3 text-base text-gray-500 text-center flex-grow line-clamp-3 leading-relaxed">
+          {description}
+        </p>
 
-          {/* Título */}
-          <h3 className="text-xl font-bold text-center">{title}</h3>
-
-          {/* Descripción */}
-          <p className="mt-3 text-base text-gray-600 text-center flex-grow">
-            {description}
-          </p>
-
-          {/* Botón con gradiente dinámico */}
-          <div
-            className={`mt-6 inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r ${gradient} hover:opacity-90 rounded-full text-sm font-semibold text-white transition-all duration-500 shadow-md`}
-          >
-            <span>Explorar</span>
-            <ArrowRight className="w-5 h-5" />
-          </div>
+        <div
+          className={`mt-6 inline-flex items-center gap-3 px-7 py-3 bg-gradient-to-r ${gradient} 
+                      rounded-full text-sm font-medium text-white shadow-md transition-all duration-500 ease-out 
+                      group-hover:scale-105 group-hover:shadow-lg hover:brightness-110`}
+        >
+          <span>Explorar</span>
+          <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:scale-110" />
         </div>
-      </motion.a>
-
-      {/* Animaciones y gradientes */}
-      <style>{`
-        @keyframes spin-border {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        .spin-border {
-          background-image: conic-gradient(
-            cyan,
-            magenta,
-            purple,
-            yellow,
-            cyan
-          );
-          animation: spin-border 8s linear infinite;
-        }
-        .spin-border-hover {
-          background-image: conic-gradient(
-            lime,
-            aqua,
-            blue,
-            violet,
-            lime
-          );
-          animation: spin-border 5s linear infinite;
-        }
-      `}</style>
-    </>
+      </div>
+    </a>
   );
 }

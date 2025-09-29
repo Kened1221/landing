@@ -1,3 +1,4 @@
+//src/components/types/ayuda.ts
 export type ManualItem = {
   title: string;
   subtitle: string;
@@ -10,5 +11,4 @@ export type VideoItem = {
   id: string;
   title: string;
   description: string;
-  duration?: string;
 };

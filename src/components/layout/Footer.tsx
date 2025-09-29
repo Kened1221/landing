@@ -33,7 +33,7 @@ export function Footer() {
               <div>
                 <h3 className="text-xl font-bold text-white">SGD</h3>
                 <p className="text-xs text-muted">
-                  RED ORANGE
+                  Gobierno Regional de Ayacucho
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                consultas@redorange.gob.pe
+                consultas@regionayacucho.gob.pe
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-yellow-400" />

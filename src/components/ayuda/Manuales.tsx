@@ -48,19 +48,19 @@ export default function Manuales() {
           <div className="text-3xl font-bold text-primary">
             {manuals.length}
           </div>
-          <div className="text-md text-muted-foreground mt-1">
+          <div className="text-md text-muted-foreground font-semibold mt-1">
             Manuales disponibles
           </div>
         </div>
         <div className="bg-chart-2/10 rounded-xl p-6">
-          <div className="text-3xl font-bold text-secondary-foreground">24</div>
-          <div className="text-md text-muted-foreground mt-1">
+          <div className="text-3xl font-bold text-foreground">24</div>
+          <div className="text-md text-muted-foreground font-semibold mt-1">
             Páginas promedio
           </div>
         </div>
         <div className="bg-chart-3/10 rounded-xl p-6">
-          <div className="text-3xl font-bold text-accent-foreground">100%</div>
-          <div className="text-md text-muted-foreground mt-1">Actualizado</div>
+          <div className="text-3xl font-bold text-foreground">100%</div>
+          <div className="text-md text-muted-foreground font-semibold mt-1">Actualizado</div>
         </div>
       </div>
 
