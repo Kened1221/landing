@@ -21,18 +21,9 @@ function App() {
   const [primary, setPrimary] = useState<string>("rgba(255,105,0,0.2)");
 
   useEffect(() => {
-    const waitForStyles = () => {
-      const root = getComputedStyle(document.documentElement);
-      const hex = root.getPropertyValue("--primary").trim();
-
-      if (hex) {
-        setPrimary(hexToRgba(hex, 0.2));
-      } else {
-        setTimeout(waitForStyles, 100);
-      }
-    };
-
-    waitForStyles();
+    const root = getComputedStyle(document.documentElement);
+    const hex = root.getPropertyValue("--primary").trim();
+    setPrimary(hexToRgba(hex, 0.2));
   }, []);
 
   return (
