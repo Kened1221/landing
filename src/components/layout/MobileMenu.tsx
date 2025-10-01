@@ -99,7 +99,7 @@ export function MobileMenu({
                 />
                 <div>
                   <h2 className="text-sm font-bold">SGD</h2>
-                  <p className="text-xs text-muted-foreground">RED ORANGE</p>
+                  <p className="text-xs text-muted-foreground">GOBIERNO REGIONAL DE AYACUCHO</p>
                 </div>
               </div>
               <button

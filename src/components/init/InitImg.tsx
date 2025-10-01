@@ -43,7 +43,7 @@ export default function InitImg() {
         </div>
 
         <img
-          src="/images/img3.jpg"
+          src="/images/img3.png"
           alt="Entidad"
           className="absolute inset-0 w-full h-full object-cover rounded-full border-[6px] border-white shadow-xl group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700 ease-out"
         />
